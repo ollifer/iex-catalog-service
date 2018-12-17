@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  database:
+    image: mongo
+    container_name: database
+    ports:
+      - 27017:27017
+
+  app:
+    image: rtti/iex-catalog-service
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
